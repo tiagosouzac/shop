@@ -15,7 +15,7 @@ type Props = {
 
 export function Product({ product }: Props) {
   return (
-    <Link href={`/product/${product.id}`}>
+    <Link href={`/product/${product.id}`} prefetch={false}>
       <Container className="keen-slider__slide">
         <Image src={product.imageUrl} width={520} height={480} alt="" />
 
