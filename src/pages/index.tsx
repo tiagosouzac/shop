@@ -13,7 +13,7 @@ type Props = {
     name: string
     imageUrl: string
     url: string
-    price: number
+    price: string
   }[]
 }
 
@@ -28,12 +28,7 @@ export default function Home({ products }: Props) {
   return (
     <Container ref={sliderRef} className="keen-slider">
       {products.map((product) => (
-        <Product
-          key={product.id}
-          image={product.imageUrl}
-          name={product.name}
-          price={product.price}
-        />
+        <Product key={product.id} product={product} />
       ))}
     </Container>
   )

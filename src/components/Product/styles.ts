@@ -30,6 +30,7 @@ export const Container = styled('a', {
     right: '0.25rem',
 
     strong: {
+      color: '$gray100',
       fontSize: '$lg',
     },
 

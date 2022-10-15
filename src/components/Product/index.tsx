@@ -1,22 +1,29 @@
+import Link from 'next/link'
 import Image from 'next/future/image'
 
 import { Container } from './styles'
 
 type Props = {
-  image: string
-  name: string
-  price: number
+  product: {
+    id: string
+    name: string
+    imageUrl: string
+    url: string
+    price: string
+  }
 }
 
-export function Product({ image, name, price }: Props) {
+export function Product({ product }: Props) {
   return (
-    <Container className="keen-slider__slide">
-      <Image src={image} width={520} height={480} alt="" />
+    <Link href={`/product/${product.id}`}>
+      <Container className="keen-slider__slide">
+        <Image src={product.imageUrl} width={520} height={480} alt="" />
 
-      <footer>
-        <strong>{name}</strong>
-        <span>{price}</span>
-      </footer>
-    </Container>
+        <footer>
+          <strong>{product.name}</strong>
+          <span>{product.price}</span>
+        </footer>
+      </Container>
+    </Link>
   )
 }
