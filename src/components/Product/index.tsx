@@ -1,9 +1,9 @@
-import Image, { StaticImageData } from 'next/future/image'
+import Image from 'next/future/image'
 
 import { Container } from './styles'
 
 type Props = {
-  image: StaticImageData
+  image: string
   name: string
   price: number
 }
