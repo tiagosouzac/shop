@@ -16,10 +16,15 @@ type Props = {
     imageUrl: string
     url: string
     price: string
+    defaultPriceId: string
   }
 }
 
 export default function Product({ product }: Props) {
+  const handleBuyProduct = () => {
+    console.log(product.defaultPriceId)
+  }
+
   return (
     <Container>
       <ImageContainer>
@@ -36,7 +41,7 @@ export default function Product({ product }: Props) {
         <span>{product.price}</span>
         <p>{product.description}</p>
 
-        <button>Comprar agora</button>
+        <button onClick={handleBuyProduct}>Comprar agora</button>
       </ProductDetails>
     </Container>
   )
@@ -71,6 +76,7 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
           style: 'currency',
           currency: 'BRL',
         }).format(price.unit_amount! / 100),
+        defaultPriceId: price.id,
       },
     },
     revalidate: 60 * 60 * 2, // 2 hours
