@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { GetStaticProps } from 'next'
 import Stripe from 'stripe'
 import { stripe } from '../lib/stripe'
@@ -26,11 +27,17 @@ export default function Home({ products }: Props) {
   })
 
   return (
-    <Container ref={sliderRef} className="keen-slider">
-      {products.map((product) => (
-        <Product key={product.id} product={product} />
-      ))}
-    </Container>
+    <>
+      <Head>
+        <title>Home | Ignite Shop</title>
+      </Head>
+
+      <Container ref={sliderRef} className="keen-slider">
+        {products.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
+      </Container>
+    </>
   )
 }
 
