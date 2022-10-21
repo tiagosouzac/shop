@@ -1,6 +1,6 @@
 import { styled } from '../../styles'
 
-export const Container = styled('a', {
+export const Container = styled('div', {
   borderRadius: 8,
   overflow: 'hidden',
   background: 'linear-gradient(180deg, #1ea483 0%, #7465b4 100%)',
